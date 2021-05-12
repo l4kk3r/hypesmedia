@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <%- include('layouts/header_panel') %>
+    <div class="cabinet_title">
+        Личный кабинет блогера
+    </div>
+    <div class="cabiten_main">
+        <div class="cabinet_blocks-payment">
+            <div id='pmethod_card' onclick="choosePaymentMethod('card')"  class="cabinet_block-payment choosen_cabinet_block-payment">
+                <div class="module3">
+                    <a>
+                        <img src="/img/mono.png">
+                    </a>
+                </div>
+            </div>
+            <div id='pmethod_qiwi' onclick="choosePaymentMethod('qiwi')" class="cabinet_block-payment">
+                <div class="module3"> <a>
+                        <img src="/img/qiwi.png">
+                    </a>
+                </div>
+            </div>
+            <div id='pmethod_yoomoney' onclick="choosePaymentMethod('yoomoney')" class="cabinet_block-payment">
+                <div class="module3"> <a>
+                        <img src="/img/io.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <form action="submit" class="cabinet_payment-form">
+            <div class="withdraw_buttons">
+                <input id='pwaller_number' type="text" class="cabinet_payment-input" placeholder="Номер карты">
+                <input type="number" class="cabinet_payment-input" placeholder="Сумма вывода">
+            </div>
+            <button class="blogger_btn bloger_buttons-item btn-purple" type="submit">Вывести</button>
+        </form>
+    </div>
+    <!-- <div class="cabinet_transaction-status">
+        <div class="module3">
+            <span id="card">CARD</span>
+            <span id="sum2">1700 РУБ</span>
+            <span id="card-numb">5469 1234 1345 1345</span>
+            <span id="card-data">12.04.2021 17:37</span>
+            <span id="card-status">ВЫПОЛНЕНО</span>
+        </div>
+    </div> -->
+    <div class="cabinet_transaction-status">
+        <h3>История выводов пуста</h3>
+    </div>
+<script>
+    const pmethods = document.querySelectorAll('.cabinet_block-payment')
+    const pwaller_number = document.getElementById('pwaller_number')
+    function choosePaymentMethod (method) {
+        pmethods.forEach(pmethod => {
+            pmethod.classList.remove('choosen_cabinet_block-payment')
+        })
+        const needed = document.getElementById(`pmethod_${method}`)
+        needed.classList.add('choosen_cabinet_block-payment')
+        if (method == 'card') {
+            pwaller_number.placeholder = 'Номер карты'
+        } else if (method == 'qiwi') {
+            pwaller_number.placeholder = 'Номер телефона/никнейм'
+        } else if (method == 'yoomoney') {
+            pwaller_number.placeholder = 'Номер кошелька'
+        }
+    }
+</script>
+</body>
+
+</html>

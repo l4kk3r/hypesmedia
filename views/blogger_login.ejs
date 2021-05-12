@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <%- include('layouts/header') %>
+    <div class="main main-command">
+        <div class="command">
+            <div class="command_title">
+                <h2 class="comman_title-h2">
+                    Вход в панель блогера
+                </h2>
+            </div>
+            <div class="command_inputs">
+                <form action="/blogger/login" method="POST" class="command_form">
+                    <% if (errorMessage.length > 0) { %>
+                        <h3 class="errorMessage"><%= errorMessage %></h3>
+                    <% } %>
+                    <input name="email" type="email" class="command_inputs-input" placeholder="Почта">
+                    <input name="password" type="password" class="command_inputs-input" placeholder="Пароль">
+                    <button type="submit" class="command_btn">
+                        Войти
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="advantages">
+            <div class="advantages_title">
+                <h2 class="advantages_title-h2 comman_title-h2">
+                    Приемущества
+                </h2>
+            </div>
+            <div class="advantages_cards">
+                <div class="advantages_cards-item">
+                    <img src="/img/face_img1.png" alt="" class="advantages_card-img">
+                    <div class="adavantages_card-text">
+                        Всегда
+                        <br>
+                        онлайн
+                    </div>
+                </div>
+                <div class="advantages_cards-item">
+                    <img src="/img/face_img2.png" alt="" class="advantages_card-img">
+                    <div class="adavantages_card-text">
+                        Помощь с
+                        <br>
+                        блокировками
+                    </div>
+                </div>
+                <div class="advantages_cards-item">
+                    <img src="/img/face_img3.png" alt="" class="advantages_card-img">
+                    <div class="adavantages_card-text">
+                        Увеличение
+                        <br>
+                        стоимости
+                        <br>
+                        рекламы
+                    </div>
+                </div>
+                <div class="advantages_cards-item">
+                    <img src="/img/face_img4.png" alt="" class="advantages_card-img">
+                    <div class="adavantages_card-text">
+                        Помощь в
+                        <br>
+                        продвижении
+                    </div>
+                </div>
+                <div class="advantages_cards-item">
+                    <img src="/img/face_img5.png" alt="" class="advantages_card-img">
+                    <div class="adavantages_card-text">
+                        Удобная
+                        <br>
+                        система
+                        <br>
+                        работы
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
