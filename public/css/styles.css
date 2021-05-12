@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
@@ -48,15 +52,11 @@ a:hover {
     color: #3391E9;
 }
 
-.errorMessage {
-    text-align: center;
-}
-
 .container {
     max-width: 1065px;
     margin: 0 auto;
     width: 100%;
-    padding: 20px 0px;
+    padding: 20px 20px;
 }
 
 .header {
@@ -111,6 +111,26 @@ a:hover {
     font-size: 96px;
     line-height: 85px;
 }
+
+.notasks_sign {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.withdraw_buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.withdraw_buttons input {
+    width: 250px;
+    margin-right: 20px;
+}
+
 
 .mait_title-small {
     align-self: flex-end;
@@ -220,7 +240,7 @@ a:hover {
 }
 
 .plan {
-    margin-top: 120px;
+    margin-top: 0;
 }
 
 .plan_blocks {
@@ -309,7 +329,7 @@ a:hover {
 }
 
 .footer {
-    margin-top: 250px;
+    margin-top: 100px;
     min-height: 250px;
     background-color: black;
     display: flex;
@@ -401,6 +421,7 @@ a:hover {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    overflow-x: hidden;
 }
 
 .advantages_cards-item {
@@ -426,6 +447,7 @@ a:hover {
 /* blogers */
 
 .blogger {
+    margin-bottom: 60px;
     margin-top: 60px;
 }
 
@@ -457,11 +479,36 @@ a:hover {
     background: linear-gradient(135deg, rgb(51, 145, 233) 30%, rgb(233, 51, 180) 70%);
 }
 
-.blogger_card-img {}
+.blogger_card-img {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+}
+
+.blogger_card-img {
+    border: solid 2px transparent;
+    border-radius: 50%;
+    background-image: linear-gradient(white, white), 
+    linear-gradient(135deg, rgb(51, 145, 233) 30%, rgb(233, 51, 180) 70%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    padding: 2px;
+}
 
 .bloger_card-info {
     color: black;
     max-width: 275px;
+}
+
+.waiting-icon {
+    width: 130px;
+    height: 170px;
+    object-fit: cover;
+}
+.waiting-icon img {
+    width: 130px;
+    height: 170px;
+    margin-top: 30px;
 }
 
 .module {
@@ -598,6 +645,7 @@ a:hover {
     background: white;
     border-radius: 999px;
     margin-bottom: 150px;
+    padding: 0 20px;
 }
 
 .advanteges-btn {
@@ -730,9 +778,6 @@ a:hover {
 }
 
 
-
-.blogger_card-img {}
-
 .bloger_card-info {
     color: black;
     max-width: 275px;
@@ -792,12 +837,16 @@ a:hover {
 }
 
 .cabinet_block-payment {
-    cursor: pointer;
     border: 3px solid #33CDE9;
 }
 
 .choosen_cabinet_block-payment {
     border: 3px solid #D03CFB;
+}
+
+.btn-purple {
+    margin-top: 30px;
+    background-color: #D03CFB;
 }
 
 .module2 {
@@ -811,46 +860,19 @@ a:hover {
 
 
 
-.notasks_sign {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.waiting-icon {
-    margin-top: 25px;
-}
-
-.waiting-icon img {
-    opacity: 0.4;
-    width: 200px;
-    height: 200px;
-}
+.cabinet_block-payment {}
 
 .cabinet_payment-form {
     margin-top: 50px;
     text-align: center;
 }
 
-.btn-purple {
-    background: #D03CFB;
-    margin-top: 15px;
-}
-
-.withdraw_buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 .cabinet_payment-input {
-    width: 250px;
+    width: 100%;
     border: 2px solid #33CDE9;
     border-radius: 999px;
     padding: 20px;
-    margin-right: 10px;
-    margin-bottom: 10px;
 }
 
 .cabinet_transaction-status {
@@ -872,8 +894,7 @@ a:hover {
     background-clip: padding-box;
     box-sizing: border-box;
     color: black;
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin-top: 150px;
     padding: 10px 25px;
 
     background: #FFFFFF;
@@ -938,13 +959,21 @@ a:hover {
 }
 
 .header_burger-menu {
-    position: relative;
+    
 }
 
 .menu {
     display: flex;
     flex-direction: column;
     position: relative;
+}
+.pctr {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+}
+.blogger_card {
+    margin-bottom: 40px;
 }
 
 .c-humburger-line2Hidden {
@@ -977,24 +1006,54 @@ a:hover {
 
 .ul_visible {
     position: absolute;
-    top: 7.7vh;
-    width: 111vh;
-    height: 100vh;
-    background: linear-gradient(252.55deg, #E933B4 9.83%, #D03CFB 32.22%, #33CDE9 60.41%, #3391E9 89.43%);
-    right: 25vh;
+    background: white;
+    font-color: black;
     display: flex;
-    left: -46vh;
-    z-index: 1;
-    text-align: right;
+    justify-content: center;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    right: 0%;
+    top: 100%;
 }
 
 .visible {
     display: block !important;
-    margin-top: 25px;
 }
 
 .no-scroll {
     overflow-y: hidden;
+}
+
+.cabinet_transaction-status {
+    margin: 70px auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible-btn {
+    margin-top: 25px;
+}
+
+.img_visible {}
+
+.bloggerPhotos {
+    position: relative;
+}
+
+.blogger_photos {
+    position: relative;
+}
+
+.plan_blocks-p {
+    display: block;
+    position: relative;
+}
+
+.plan_block {
+    position: relative;
 }
 
 /* media */
@@ -1009,11 +1068,14 @@ a:hover {
         justify-content: space-between;
         align-items: center;
         padding: 10px;
+        position:relative;
     }
 
     .header_hidden-ul-item {
         display: none;
         list-style: none;
+        margin-top: 20px;
+        font-size: black;
     }
 
     .main_info {
@@ -1050,6 +1112,10 @@ a:hover {
         border-radius: 5px;
     }
 
+    .bloger_card-info-span {
+        margin-left: 0;
+    }
+
     .why_block:first-child::before {
         content: '';
         position: absolute;
@@ -1061,6 +1127,7 @@ a:hover {
         left: -32px;
         top: 150px;
     }
+
     .why_block:first-child::after {
         content: '';
         position: absolute;
@@ -1069,8 +1136,37 @@ a:hover {
         background-image: url(../assets/eclipse3.png);
         background-repeat: no-repeat;
         background-size: contain;
-        right:-46px;
+        right: -46px;
         top: 150px;
+    }
+
+    .header {
+        display: flex;
+    }
+
+    .cabinet_blocks-payment {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .header_nav-cabinet {
+        flex-direction: column;
+    }
+    .ph_logo {
+        display: none;
+    }
+    .header_ul-cabinet {
+        font-size: 20px;
+        margin: 20px 0;
+        text-decoration: underline;
+        width: 100%;
+        display: flex;
+    }
+    .cabinet_transaction-status {
+        width: calc(100% - 40px);
+    }
+    .cabinet_title {
+        display: none;
     }
     .why_block:nth-child(3):after {
         content: '';
@@ -1080,9 +1176,10 @@ a:hover {
         background-image: url(../assets/eclipse1.png);
         background-repeat: no-repeat;
         background-size: contain;
-        right:-60px;
+        right: -60px;
         top: 150px;
     }
+
     .why_img {
         display: none;
     }
@@ -1097,7 +1194,7 @@ a:hover {
     }
 
     .header_hidden-ul-item>a {
-        color: white;
+        color: black;
         font-size: 22px;
     }
 
@@ -1126,5 +1223,155 @@ a:hover {
 
     .plan_block:nth-child(2)::before {
         display: none;
+    }
+
+    .withdraw_buttons input {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .advantages_cards {
+        list-style: none;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .advantages_cards {
+        display: flex;
+        overflow-x: scroll;
+        padding: 20px;
+        overscroll-behavior: contain;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
+    }
+
+    .advantages_cards-item:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    .advantages_cards-item {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* color: #fff; */
+        border-radius: 8px;
+    }
+
+    .advantages_cards-item {
+        height: 224px;
+        width: 125px;
+        flex-shrink: 0;
+        background-color: #fff;
+        color: beige;
+        color: black;
+        display: flex;
+    }
+
+    .main-command {
+        display: block;
+    }
+
+    .blogger {
+        padding: 20px;
+    }
+
+    .blogger_card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .module {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .blogger_card-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .blogger_buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bloger_card-info {
+        text-align: center;
+    }
+
+    .btn-pink {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+
+    .btn-blue {
+        margin-top: 20px;
+        margin-right: 0;
+    }
+
+    .blogger_btn {
+        margin-top: 20px;
+    }
+
+    .blogger_photos {
+        justify-content: center;
+    }
+
+    .arrow-pink {
+        width: 17px;
+        height: 30px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+    }
+
+    .plan_block:nth-child(2)::after {
+        content: '';
+        position: absolute;
+        width: 7px;
+        height: 24px;
+        background-color: #3391E9;
+        bottom: -36px;
+        border-radius: 999px;
+        right: 50%;
+    }
+    .plan_block:nth-child(1)::after {
+        content: '';
+        position: absolute;
+        width: 7px;
+        height: 24px;
+        background-color: #E933B4;
+        bottom: -36px;
+        border-radius: 999px;
+        right: 50%;
+    }
+    .plan_block:nth-child(4)::after {
+        content: '';
+        position: absolute;
+        width: 7px;
+        height: 24px;
+        background-color: #33CDE9;
+        ;
+        bottom: -36px;
+        border-radius: 999px;
+        right: 50%;
+    }
+    .adv-btn{
+        display: none;
+    }
+    .avb_btn-spec{
+        display: block;
     }
 }

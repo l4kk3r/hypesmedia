@@ -1,7 +1,9 @@
 <div class="blogger_card">
     <div class="module">
         <div class="blogger_card-inner">
-            <img src="<%=blogger.instagram.avatar %>" alt="" class="blogger_card-img">
+            <picture class="pctr">
+                <img src="/img/blogger_avatars/<%=blogger.instagram.account %>.png" alt="" class="blogger_card-img">
+            </picture>
             <div class="bloger_card-info">
                 <span class="bloger_card-info-span">
                     <%= blogger.instagram.account %>
@@ -13,12 +15,12 @@
             </div>
         </div>
         <div class="blogger_buttons">
-            <button class="blogger_btn bloger_buttons-item btn-blue">
+            <a target="_blank" rel="noopener noreferrer" href='https://instagram.com/<%=blogger.instagram.account %>'><button class="blogger_btn bloger_buttons-item btn-blue">
                 Подробнее
-            </button>
-            <button class="blogger_btn bloger_buttons-item btn-pink">
+            </button></a>
+            <a target="_blank" rel="noopener noreferrer" href='https://instagram.com/hypes.media'><button class="blogger_btn bloger_buttons-item btn-pink">
                 Заказать рекламу
-            </button>
+            </button></a>
         </div>
     </div>
 </div>

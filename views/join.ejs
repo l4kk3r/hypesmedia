@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -21,82 +21,83 @@
                 </h2>
             </div>
         <% } else { %>
-            <div class="command">
-                <div class="command_title">
-                    <h2 class="comman_title-h2">
-                        Стань частью команды
-                    </h2>
+        <div class="command">
+            <div class="command_title">
+                <h2 id="command-title-h2" class="comman_title-h2">
+                    Стань частью команды
+                </h2>
+            </div>
+            <div class="command_inputs">
+                <form action="/blogger/join" method="POST" class="command_form">
+                    <% if (errorMessage.length > 0) { %>
+                        <h3 class="errorMessage"><%= errorMessage %></h3>
+                    <% } %>
+                    <input name="instagram_account" type="text" class="command_inputs-input" placeholder="Instargam">
+                    <input name="email" type="email" class="command_inputs-input" placeholder="Почта">
+                    <input name="phone" type="tel" class="command_inputs-input" placeholder="Контактный номер телефона">
+                    <input name="password" type="password" class="command_inputs-input" placeholder="Придумай пароль">
+                    <button type="submit" class="command_btn">
+                        Подать заявку
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="advantages">
+            <div class="advantages_title">
+                <h2 class="advantages_title-h2 comman_title-h2">
+                    Преимущества
+                </h2>
+            </div>
+            <div class="advantages_cards">
+                <div class="advantages_cards-item">
+                    <img src="/img/face_img1.png" alt="" class="advantages_card-img">
+                    <div class="adavantages_card-text">
+                        Всегда
+                        <br>
+                        онлайн
+                    </div>
                 </div>
-                <div class="command_inputs">
-                    <form action="/blogger/join" method="POST" class="command_form">
-                        <% if (errorMessage.length > 0) { %>
-                            <h3 class="errorMessage"><%= errorMessage %></h3>
-                        <% } %>
-                        <input name="instagram_account" type="text" class="command_inputs-input" placeholder="Instargam">
-                        <input name="email" type="email" class="command_inputs-input" placeholder="Почта">
-                        <input name="phone" type="tel" class="command_inputs-input" placeholder="Контактный номер телефона">
-                        <input name="password" type="password" class="command_inputs-input" placeholder="Придумай пароль">
-                        <button type="submit" class="command_btn">
-                            Подать заявку
-                        </button>
-                    </form>
+                <div class="advantages_cards-item">
+                    <img src="/img/face_img2.png" alt="" class="advantages_card-img">
+                    <div class="adavantages_card-text">
+                        Помощь с
+                        <br>
+                        блокировками
+                    </div>
+                </div>
+                <div class="advantages_cards-item">
+                    <img src="/img/face_img3.png" alt="" class="advantages_card-img">
+                    <div class="adavantages_card-text">
+                        Увеличение
+                        <br>
+                        стоимости
+                        <br>
+                        рекламы
+                    </div>
+                </div>
+                <div class="advantages_cards-item">
+                    <img src="/img/face_img4.png" alt="" class="advantages_card-img">
+                    <div class="adavantages_card-text">
+                        Помощь в
+                        <br>
+                        продвижении
+                    </div>
+                </div>
+                <div class="advantages_cards-item">
+                    <img src="/img/face_img5.png" alt="" class="advantages_card-img">
+                    <div class="adavantages_card-text">
+                        Удобная
+                        <br>
+                        система
+                        <br>
+                        работы
+                    </div>
                 </div>
             </div>
-            <div class="advantages">
-                <div class="advantages_title">
-                    <h2 class="advantages_title-h2 comman_title-h2">
-                        Приемущества
-                    </h2>
-                </div>
-                <div class="advantages_cards">
-                    <div class="advantages_cards-item">
-                        <img src="/img/face_img1.png" alt="" class="advantages_card-img">
-                        <div class="adavantages_card-text">
-                            Всегда
-                            <br>
-                            онлайн
-                        </div>
-                    </div>
-                    <div class="advantages_cards-item">
-                        <img src="/img/face_img2.png" alt="" class="advantages_card-img">
-                        <div class="adavantages_card-text">
-                            Помощь с
-                            <br>
-                            блокировками
-                        </div>
-                    </div>
-                    <div class="advantages_cards-item">
-                        <img src="/img/face_img3.png" alt="" class="advantages_card-img">
-                        <div class="adavantages_card-text">
-                            Увеличение
-                            <br>
-                            стоимости
-                            <br>
-                            рекламы
-                        </div>
-                    </div>
-                    <div class="advantages_cards-item">
-                        <img src="/img/face_img4.png" alt="" class="advantages_card-img">
-                        <div class="adavantages_card-text">
-                            Помощь в
-                            <br>
-                            продвижении
-                        </div>
-                    </div>
-                    <div class="advantages_cards-item">
-                        <img src="/img/face_img5.png" alt="" class="advantages_card-img">
-                        <div class="adavantages_card-text">
-                            Удобная
-                            <br>
-                            система
-                            <br>
-                            работы
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
         <% } %>
     </div>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

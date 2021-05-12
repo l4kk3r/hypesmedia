@@ -9,15 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
+
 </head>
 
 <body>
     <%- include('layouts/header') %>
     <main class="main main_bloggers">
+        <div id="adv_btn-hidden" class="advanteges-btn adv_btn-hidden hidden">
+            <button class="adv-btn avb_btn-spec">
+                Связаться с менеджером для покупки рекламы
+            </button>
+        </div>
         <div class="advantages">
             <div class="advantages_title">
                 <h2 class="advantages_title-h2 comman_title-h2">
-                    Приемущества
+                    Преимущества
                 </h2>
             </div>
             <div class="advantages_cards">
@@ -68,16 +74,17 @@
             </div>
         </div>
         <div class="advanteges-btn">
-            <button class="adv-btn">
+            <a target="_blank" rel="noopener noreferrer" href='https://instagram.com/hypes.media'><button class="adv-btn">
                 Связаться с менеджером для покупки рекламы
                 <div class="adv-small_click">
-                    <img src="/img/line.png" alt="">
+                    <img src="/img/line.png">
                     <br>
                     <span class="adv-small_click-span">Нажми</span>
                 </div>
-            </button>
+            </button></a>
         </div>
     </main>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

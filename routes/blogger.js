@@ -6,6 +6,7 @@ const User = mongoose.model("User")
 const router = express.Router()
 const redirectIfNotAuthenticated = require('../middleware/redirectIfNotAuthenticated')
 const getUser = require('../middleware/getUser')
+const downloadAvatar = require('../download_avatar')
 
 
 router.post('/login', async (req, res) => {
@@ -31,11 +32,13 @@ router.post('/login', async (req, res) => {
 router.post('/join', async (req, res) => {
     try {
         let user = new User(req.body)
-        const instagramProfileData = await axios.get(`https://www.instagram.com/${req.body.instagram_account}/?__a=1`)
+        const instagram_account = req.body.instagram_account.replace('@', '')
+        const instagramProfileData = await axios.get(`https://www.instagram.com/${instagram_account}/?__a=1`)
         const inagramProfileDataParsed = instagramProfileData.data.graphql.user
         const followers = inagramProfileDataParsed.edge_followed_by.count
         const avatar = inagramProfileDataParsed.profile_pic_url
-        user.instagram = {account: req.body.instagram_account, followers, avatar}
+        user.instagram = {account: instagram_account, followers, avatar}
+        await downloadAvatar(avatar, instagram_account)
         await user.save()
         req.flash('successMessage', 'Спасибо за регистрацию!')
     } catch (err) {

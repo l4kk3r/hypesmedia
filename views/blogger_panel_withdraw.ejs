@@ -16,6 +16,7 @@
     <div class="cabinet_title">
         Личный кабинет блогера
     </div>
+    <h3 id='nomoney_sign' style="display: none; color: tomato; text-align: center; margin-bottom: 10px;">На вашем счёте пока нет денег</h3>
     <div class="cabiten_main">
         <div class="cabinet_blocks-payment">
             <div id='pmethod_card' onclick="choosePaymentMethod('card')"  class="cabinet_block-payment choosen_cabinet_block-payment">
@@ -43,7 +44,7 @@
                 <input id='pwaller_number' type="text" class="cabinet_payment-input" placeholder="Номер карты">
                 <input type="number" class="cabinet_payment-input" placeholder="Сумма вывода">
             </div>
-            <button class="blogger_btn bloger_buttons-item btn-purple" type="submit">Вывести</button>
+            <button onclick="pay()" class="blogger_btn bloger_buttons-item btn-purple" type="button">Вывести</button>
         </form>
     </div>
     <!-- <div class="cabinet_transaction-status">
@@ -61,6 +62,7 @@
 <script>
     const pmethods = document.querySelectorAll('.cabinet_block-payment')
     const pwaller_number = document.getElementById('pwaller_number')
+    const nomoney_sign = document.getElementById('nomoney_sign')
     function choosePaymentMethod (method) {
         pmethods.forEach(pmethod => {
             pmethod.classList.remove('choosen_cabinet_block-payment')
@@ -74,6 +76,9 @@
         } else if (method == 'yoomoney') {
             pwaller_number.placeholder = 'Номер кошелька'
         }
+    }
+    function pay() {
+        nomoney_sign.style = 'display: block; color: tomato; text-align: center; margin-bottom: 10px;'
     }
 </script>
 </body>
