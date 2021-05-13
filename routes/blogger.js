@@ -42,7 +42,7 @@ router.post('/join', async (req, res) => {
         await user.save()
         req.flash('successMessage', 'Спасибо за регистрацию!')
     } catch (err) {
-        req.flash('errorMessage', 'Ошибка!')
+        req.flash('errorMessage', 'Данный email или пароль уже зарегистрированы в нашей системе')
         console.log(err)
     }
     res.redirect('/join')

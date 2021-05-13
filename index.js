@@ -38,6 +38,7 @@ app.use(expressSession({
     },
     store: new MongoStore({mongoUrl: 'mongodb+srv://admin:admin@fekacluster.4nf6p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'}),
 }))
+
 app.use('*', (req, res, next) => {
     loggedIn = req.session.userId
     next()

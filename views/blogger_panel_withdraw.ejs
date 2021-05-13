@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
+<%- include('layouts/head') %>
 
 <body>
     <%- include('layouts/header_panel') %>
-    <div class="cabinet_title">
-        Личный кабинет блогера
-    </div>
-    <h3 id='nomoney_sign' style="display: none; color: tomato; text-align: center; margin-bottom: 10px;">На вашем счёте пока нет денег</h3>
+    <h3 id='nomoney_sign' style="display: none; color: tomato; text-align: center; margin-bottom: 10px; margin-top: 10px;">На вашем счёте нет денег</h3>
     <div class="cabiten_main">
         <div class="cabinet_blocks-payment">
             <div id='pmethod_card' onclick="choosePaymentMethod('card')"  class="cabinet_block-payment choosen_cabinet_block-payment">
@@ -39,12 +25,12 @@
                 </div>
             </div>
         </div>
-        <form action="submit" class="cabinet_payment-form">
+        <form id='withdraw_form' action="submit" class="cabinet_payment-form">
             <div class="withdraw_buttons">
-                <input id='pwaller_number' type="text" class="cabinet_payment-input" placeholder="Номер карты">
-                <input type="number" class="cabinet_payment-input" placeholder="Сумма вывода">
+                <input required id='pwaller_number' type="text" class="cabinet_payment-input" placeholder="Номер карты">
+                <input required type="number" class="cabinet_payment-input" placeholder="Сумма вывода">
             </div>
-            <button onclick="pay()" class="blogger_btn bloger_buttons-item btn-purple" type="button">Вывести</button>
+            <button id='withdraw_btn' class="blogger_btn bloger_buttons-item btn-purple" type="submit">Вывести</button>
         </form>
     </div>
     <!-- <div class="cabinet_transaction-status">
@@ -63,6 +49,8 @@
     const pmethods = document.querySelectorAll('.cabinet_block-payment')
     const pwaller_number = document.getElementById('pwaller_number')
     const nomoney_sign = document.getElementById('nomoney_sign')
+    const withdraw_btn = document.getElementById('withdraw_btn')
+    const withdraw_form = document.getElementById('withdraw_form')
     function choosePaymentMethod (method) {
         pmethods.forEach(pmethod => {
             pmethod.classList.remove('choosen_cabinet_block-payment')
@@ -77,9 +65,16 @@
             pwaller_number.placeholder = 'Номер кошелька'
         }
     }
-    function pay() {
+    withdraw_btn.addEventListener('submit', function (e) {
+        e.preventDefault()
         nomoney_sign.style = 'display: block; color: tomato; text-align: center; margin-bottom: 10px;'
-    }
+        return false;
+    } )
+    withdraw_form.addEventListener('submit', function (e) {
+        e.preventDefault()
+        nomoney_sign.style = 'display: block; color: tomato; text-align: center; margin-bottom: 10px;'
+        return false;
+    })
 </script>
 </body>
 

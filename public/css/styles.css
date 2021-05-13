@@ -181,6 +181,7 @@ a:hover {
     font-weight: 400;
     font-family: 'Roboto';
     font-weight: 400;
+    text-align: center;
 }
 
 .main_info-small {
@@ -287,7 +288,7 @@ a:hover {
     position: absolute;
     width: 90px;
     height: 20px;
-    background-image: url('../assets/arrow_rigth.png');
+    background-image: url('../img/arrow_rigth.png');
     background-repeat: no-repeat;
     background-size: contain;
     right: -115px;
@@ -298,7 +299,7 @@ a:hover {
     position: absolute;
     width: 90px;
     height: 20px;
-    background-image: url('../assets/arrow_left.png');
+    background-image: url('../img/arrow_left.png');
     background-repeat: no-repeat;
     background-size: contain;
     left: -85px;
@@ -309,7 +310,7 @@ a:hover {
     position: absolute;
     width: 40px;
     height: 30px;
-    background-image: url(../assets/arrow_down.png);
+    background-image: url(../img/arrow_down.png);
     background-repeat: no-repeat;
     background-size: contain;
     right: -17px;
@@ -703,7 +704,6 @@ a:hover {
 #balance {
     display: inline-block;
     align-self: flex-start;
-    margin-top: 25px;
     color: #353535;
     font-weight: 500;
     font-size: 24px;
@@ -968,9 +968,13 @@ a:hover {
     position: relative;
 }
 .pctr {
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
+}
+.pctr-panel img {
+    width: 100px !important;
+    height: 100px !important;
 }
 .blogger_card {
     margin-bottom: 40px;
@@ -1121,7 +1125,7 @@ a:hover {
         position: absolute;
         width: 48px;
         height: 48px;
-        background-image: url(../assets/eclipse2.png);
+        background-image: url(../img/eclipse2.png);
         background-repeat: no-repeat;
         background-size: contain;
         left: -32px;
@@ -1133,11 +1137,21 @@ a:hover {
         position: absolute;
         width: 48px;
         height: 48px;
-        background-image: url(../assets/eclipse3.png);
+        background-image: url(../img/eclipse3.png);
         background-repeat: no-repeat;
         background-size: contain;
         right: -46px;
         top: 150px;
+    }
+
+    .plan_block:nth-child(4)::before {
+        display: none;
+    }
+    .index_container {
+        padding: 20px 0;
+    }
+    .command_form {
+        padding: 0 20px;
     }
 
     .header {
@@ -1173,7 +1187,7 @@ a:hover {
         position: absolute;
         width: 48px;
         height: 48px;
-        background-image: url(../assets/eclipse1.png);
+        background-image: url(../img/eclipse1.png);
         background-repeat: no-repeat;
         background-size: contain;
         right: -60px;
@@ -1373,5 +1387,9 @@ a:hover {
     }
     .avb_btn-spec{
         display: block;
+        width: calc(100% - 40px);
+    }
+    .mobile_header_container {
+        display: none !important;
     }
 }

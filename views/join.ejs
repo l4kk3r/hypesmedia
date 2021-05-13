@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+<%- include('layouts/head') %>
 
 <body>
     <%- include('layouts/header') %>
@@ -32,10 +21,10 @@
                     <% if (errorMessage.length > 0) { %>
                         <h3 class="errorMessage"><%= errorMessage %></h3>
                     <% } %>
-                    <input name="instagram_account" type="text" class="command_inputs-input" placeholder="Instargam">
-                    <input name="email" type="email" class="command_inputs-input" placeholder="Почта">
-                    <input name="phone" type="tel" class="command_inputs-input" placeholder="Контактный номер телефона">
-                    <input name="password" type="password" class="command_inputs-input" placeholder="Придумай пароль">
+                    <input required name="instagram_account" type="text" class="command_inputs-input" placeholder="Instargam">
+                    <input required name="email" type="email" class="command_inputs-input" placeholder="Почта">
+                    <input required name="phone" type="tel" class="command_inputs-input" placeholder="Контактный номер телефона">
+                    <input required name="password" type="password" class="command_inputs-input" placeholder="Придумай пароль">
                     <button type="submit" class="command_btn">
                         Подать заявку
                     </button>
