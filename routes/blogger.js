@@ -30,21 +30,31 @@ router.post('/login', async (req, res) => {
 })
 
 router.post('/join', async (req, res) => {
-    try {
-        let user = new User(req.body)
-        const instagram_account = req.body.instagram_account.replace('@', '')
-        const instagramProfileData = await axios.get(`https://www.instagram.com/${instagram_account}/?__a=1`)
-        const inagramProfileDataParsed = instagramProfileData.data.graphql.user
-        const followers = inagramProfileDataParsed.edge_followed_by.count
-        const avatar = inagramProfileDataParsed.profile_pic_url
-        user.instagram = {account: instagram_account, followers, avatar}
-        await downloadAvatar(avatar, instagram_account)
-        await user.save()
-        req.flash('successMessage', 'Спасибо за регистрацию!')
-    } catch (err) {
-        req.flash('errorMessage', 'Данный email или пароль уже зарегистрированы в нашей системе')
-        console.log(err)
-    }
+    let user = new User(req.body)
+    const instagram_account = req.body.instagram_account.replace('@', '')
+    const instagramProfileData = await axios.get(`https://www.instagram.com/${instagram_account}/?__a=1`)
+    const inagramProfileDataParsed = instagramProfileData.data.graphql.user
+    const followers = inagramProfileDataParsed.edge_followed_by.count
+    const avatar = inagramProfileDataParsed.profile_pic_url
+    user.instagram = {account: instagram_account, followers, avatar}
+    await downloadAvatar(avatar, instagram_account)
+    await user.save()
+    req.flash('successMessage', 'Спасибо за регистрацию!')
+    // try {
+    //     let user = new User(req.body)
+    //     const instagram_account = req.body.instagram_account.replace('@', '')
+    //     const instagramProfileData = await axios.get(`https://www.instagram.com/${instagram_account}/?__a=1`)
+    //     const inagramProfileDataParsed = instagramProfileData.data.graphql.user
+    //     const followers = inagramProfileDataParsed.edge_followed_by.count
+    //     const avatar = inagramProfileDataParsed.profile_pic_url
+    //     user.instagram = {account: instagram_account, followers, avatar}
+    //     await downloadAvatar(avatar, instagram_account)
+    //     await user.save()
+    //     req.flash('successMessage', 'Спасибо за регистрацию!')
+    // } catch (err) {
+    //     req.flash('errorMessage', 'Данный email или пароль уже зарегистрированы в нашей системе')
+    //     console.log(err)
+    // }
     res.redirect('/join')
 })
 
