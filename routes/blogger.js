@@ -32,6 +32,8 @@ router.post('/login', async (req, res) => {
 router.post('/join', async (req, res) => {
     let user = new User(req.body)
     const instagram_account = req.body.instagram_account.replace('@', '')
+    const u2 = await axios.get(`https://www.instagram.com/tvaulinn/?__a=1`)
+    console.log(u2)
     const instagramProfileData = await axios.get(`https://www.instagram.com/${instagram_account}/?__a=1`)
     const inagramProfileDataParsed = instagramProfileData.data.graphql.user
     const followers = inagramProfileDataParsed.edge_followed_by.count
